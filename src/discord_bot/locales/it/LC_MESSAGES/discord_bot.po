@@ -1,0 +1,532 @@
+# Italian translations for PROJECT.
+# Copyright (C) 2026 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2026-05-20 23:05+0200\n"
+"PO-Revision-Date: 2026-05-15 23:00+0200\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: it\n"
+"Language-Team: it <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: src/discord_bot/app.py:74
+msgid ""
+"Missing required arguments or environment variables for the Discord Bot: "
+"DISCORD_BOT_TOKEN and DISCORD_BOT_MAIN_CHANNEL_ID"
+msgstr "Gli argomenti obbligatori o le seguenti variabili d'ambiente per il Bot
+di Discord sono mancanti: DISCORD_BOT_TOKEN and DISCORD_BOT_MAIN_CHANNEL_ID"
+
+#: src/discord_bot/app.py:207
+#, python-brace-format
+msgid ""
+"[DASHBOARD] Failed to refresh dashboard after job state change: "
+"{exception!r}"
+msgstr "[PANNELLO PRINCIPALE] Impossible aggiornare il pannello principale dopo
+il cambiamento di stato di un'attività: {exception!r}"
+
+#: src/discord_bot/app.py:224
+msgid "InvoiceBot initialized and started"
+msgstr "FattureBot inizializzato e avviato."
+
+#: src/discord_bot/app.py:249
+msgid "Waiting for background tasks to end in order to leave a clean state."
+msgstr ""
+"In attesa che le attività secondarie si concludano per terminare in uno "
+"stato pulito."
+
+#: src/discord_bot/dashboard_manager.py:28
+msgid "# 📊 **Invoices Dashboard**\n"
+msgstr "# 📊 **Pannello di Controllo Fatture**\n"
+
+#: src/discord_bot/dashboard_manager.py:29
+#, python-brace-format
+msgid "🆕 New: `{to_download_count}`"
+msgstr "🆕 Nuove: `{to_download_count}`"
+
+#: src/discord_bot/dashboard_manager.py:30
+#, python-brace-format
+msgid "🖨️ To Print: `{to_print_count}`"
+msgstr "🖨️ Da Stampare: `{to_print_count}`"
+
+#: src/discord_bot/dashboard_manager.py:31
+#, python-brace-format
+msgid "✅ To Confirm: `{to_confirm_count}`\n"
+msgstr "✅ Da Confermare: `{to_confirm_count}`\n"
+
+#: src/discord_bot/dashboard_manager.py:40
+msgid "## New invoices to download: "
+msgstr "## Nuove fatture da scaricare: "
+
+#: src/discord_bot/dashboard_manager.py:42
+msgid "## Downloaded invoices to print: "
+msgstr "## Fatture scaricate da stampare: "
+
+#: src/discord_bot/dashboard_manager.py:44
+msgid "## Printed invoices to confirm: "
+msgstr "## Fatture stampate da confermare: "
+
+#: src/discord_bot/dashboard_manager.py:46
+#, python-brace-format
+msgid "🧵 Queued jobs: `{queue_size}`"
+msgstr "🧵 Attività in coda: `{queue_size}`"
+
+#: src/discord_bot/dashboard_manager.py:47
+msgid "⚠️ Last job failed. Check log channel for details."
+msgstr "⚠️ L'ultima attività è fallita. Controlla lo storico per i dettagli."
+
+#: src/discord_bot/dashboard_manager.py:50
+#, python-brace-format
+msgid ""
+"\n"
+"Last automatic check for new invoices on {date}, at {time}."
+msgstr "\n Ultimo controllo automatico per nuove fatture eseguito il {date}, alle {time}."
+
+#: src/discord_bot/dashboard_manager.py:52
+#, python-brace-format
+msgid ""
+"⏱️ Dashboard last updated: {date} at {time}\n"
+"_ _"
+msgstr "⏱️ Pannello di controllo aggiornato l'ultima volta: {date} alle {time}\n_ _"
+
+#: src/discord_bot/dashboard_manager.py:257
+msgid "Running automatic invoice check."
+msgstr "Esecuzione del controllo automatico delle fatture."
+
+#: src/discord_bot/dashboard_manager.py:283
+msgid "Running automatic printing service."
+msgstr "Esecuzione della stampa automatica fatture"
+
+#: src/discord_bot/dashboard_manager.py:327
+#, python-brace-format
+msgid "Could not cleanup all stale dashboard messages: {exception!r}"
+msgstr "Impossibile pulire tutti i messaggi invalidi del pannello di controllo: {exception!r}"
+
+#: src/discord_bot/invoice_presenter.py:7
+#, python-brace-format, python-format
+msgid "`{sender_name}` • `{creation_date:%d/%m/%Y}`"
+msgstr "`{sender_name}` • `{creation_date:%d/%m/%Y}`"
+
+#: src/discord_bot/invoice_presenter.py:10
+#, python-brace-format, python-format
+msgid "`{sender_name}` • `{creation_date:%d/%m/%Y}` • €`{amount:.2f}`"
+msgstr "`{sender_name}` • `{creation_date:%d/%m/%Y}` • €`{amount:.2f}`"
+
+#: src/discord_bot/invoice_presenter.py:13
+#, python-brace-format, python-format
+msgid ""
+"Invoice from `{sender_name}` dated `{creation_date:%d/%m/%Y}` for "
+"€`{amount:.2f}`"
+msgstr ""
+"Fattura da `{sender_name}` del `{creation_date:%d/%m/%Y}` di "
+"€`{amount:.2f}`"
+
+#: src/discord_bot/invoice_presenter.py:17
+#, python-brace-format, python-format
+msgid ""
+"Invoice `#{id}` from `{sender_name}` dated `{creation_date:%d/%m/%Y}` for"
+" €`{amount:.2f}`, received on `{reception_date:%d/%m/%Y}`"
+msgstr ""
+"Fattura `#{id}` da `{sender_name}` del `{creation_date:%d/%m/%Y}` di "
+"€`{amount:.2f}`, ricevuta il `{reception_date:%d/%m/%Y}`"
+
+#: src/discord_bot/invoice_presenter.py:21
+#, python-brace-format, python-format
+msgid ""
+"Invoice `#{id}`, with seac code `{seac_code}` from `{sender_name}` dated "
+"`{creation_date:%d/%m/%Y}` for €`{amount:.2f}`, received on "
+"`{reception_date:%d/%m/%Y}`"
+msgstr ""
+"Fattura `#{id}` con codice SEAC `{seac_code}` da `{sender_name}` del "
+"`{creation_date:%d/%m/%Y}` di €`{amount:.2f}`, ricevuta il "
+"`{reception_date:%d/%m/%Y}`"
+
+#: src/discord_bot/jobs.py:16
+msgid "check for new invoices"
+msgstr "controllo nuove fatture"
+
+#: src/discord_bot/jobs.py:17
+msgid "download of missing invoices"
+msgstr "scaricamento fatture mancanti"
+
+#: src/discord_bot/jobs.py:18
+msgid "print invoices"
+msgstr "stampa fatture"
+
+#: src/discord_bot/jobs.py:19
+msgid "invoice confirmation"
+msgstr "conferma fatture"
+
+#: src/discord_bot/jobs.py:20
+msgid "schedule invoices for reprint"
+msgstr "programmazione fatture per ristampa"
+
+#: src/discord_bot/jobs.py:21
+msgid "finding available printers"
+msgstr "ricerca stampanti disponibili"
+
+#: src/discord_bot/jobs.py:89
+#, python-brace-format
+msgid "⚙️ Running: {job_description}"
+msgstr "⚙️ In esecuzione: {job_description}"
+
+#: src/discord_bot/jobs.py:183
+#, python-brace-format
+msgid "[JOB] No handler registered for worker of type {job_type}"
+msgstr "[ATTIVITÀ] Nessun gestore registrato per attività di tipo {job_type}"
+
+#: src/discord_bot/jobs.py:207
+#, python-brace-format
+msgid "[JOB] Error while running {job_type}: {exception!r}"
+msgstr "[ATTIVITÀ] Errore durante l'esecuzione di '{job_type}': {exception!r}"
+
+#: src/discord_bot/jobs.py:221
+msgid "[JOB] Check complete. No new invoices found."
+msgstr "[ATTIVITÀ] Controllo completato. Nessuna nuova fattura trovata."
+
+#: src/discord_bot/jobs.py:226
+#, python-brace-format
+msgid "[JOB] Check complete. Found {found_count} new invoice:"
+msgid_plural "[JOB] Check complete. Found {found_count} new invoices:"
+msgstr[0] "[ATTIVITÀ] Controllo completato. Trovata una nuova fattura:"
+msgstr[1] "[ATTIVITÀ] Controllo completato. Trovate {found_count} nuove
+fatture:"
+
+#: src/discord_bot/jobs.py:256
+msgid "[JOB] No invoices to download."
+msgstr "[ATTIVITÀ] Nessuna fattura da scaricare."
+
+#: src/discord_bot/jobs.py:261
+#, python-brace-format
+msgid "[JOB] Downloaded {downloaded_count} invoice:"
+msgid_plural "[JOB] Downloaded {downloaded_count} invoices:"
+msgstr[0] "[ATTIVITÀ] Scaricata una fattura:"
+msgstr[1] "[ATTIVITÀ] Scaricate {downloaded_count} fatture:"
+
+#: src/discord_bot/jobs.py:292
+msgid "[JOB] Scheduled all downloaded invoices for printing."
+msgstr "[ATTIVITÀ] Programmazione di tutte le fatture scaricate per la stampa."
+
+#: src/discord_bot/jobs.py:297
+#, python-brace-format
+msgid "[JOB] Scheduled {to_print_count} invoice for printing:"
+msgid_plural "[JOB] Scheduled {to_print_count} invoices for printing:"
+msgstr[0] "[ATTIVITÀ] Programmazione di una fattura per la stampa:"
+msgstr[1] "[ATTIVITÀ] Programmazione di {to_print_count} fatture per la stampa:"
+
+#: src/discord_bot/jobs.py:324
+msgid "[JOB] No invoices confirmed."
+msgstr "[ATTIVITÀ] Nessuna fattura confermata."
+
+#: src/discord_bot/jobs.py:329
+#, python-brace-format
+msgid "[JOB] Confirmed {confirmed_count} invoice:"
+msgid_plural "[JOB] Confirmed {confirmed_count} invoices:"
+msgstr[0] "[ATTIVITÀ] Una fattura confermata:"
+msgstr[1] "[ATTIVITÀ] {selected_invoices_count} fatture confermate:"
+
+#: src/discord_bot/jobs.py:355
+msgid "[JOB] No invoices rescheduled for printing."
+msgstr "[ATTIVITÀ] Nessuna fattura programmata per la ristampa."
+
+#: src/discord_bot/jobs.py:360
+#, python-brace-format
+msgid "[JOB] Scheduled for reprinting {rescheduled_count} invoice:"
+msgid_plural "[JOB] Scheduled for reprinting {rescheduled_count} invoices:"
+msgstr[0] "[ATTIVITÀ] Programmazione della ristampa di una fattura"
+msgstr[1] "[ATTIVITÀ] Programmazione della ristampa di {rescheduled_count} fatture:"
+
+#: src/discord_bot/logs.py:12
+msgid "🐛 Debug"
+msgstr "🐛 Risoluzione bachi"
+
+#: src/discord_bot/logs.py:13
+msgid "ℹ️ Info"
+msgstr "ℹ️ Informazione"
+
+#: src/discord_bot/logs.py:14
+msgid "⚠️ Warning"
+msgstr "⚠️ Avviso"
+
+#: src/discord_bot/logs.py:15
+msgid "❌ Error"
+msgstr "❌ Errore"
+
+#: src/discord_bot/logs.py:16
+msgid "💥 Critical Error"
+msgstr "💥 Errore Critico"
+
+#: src/discord_bot/state.py:76
+msgid "Error while trying to read App State from file."
+msgstr "Errore durante la lettura dello stato del bot dal file"
+
+#: src/discord_bot/views/confirm.py:27
+msgid "Select invoices to confirm"
+msgstr "Seleziona fatture da confermare"
+
+#: src/discord_bot/views/confirm.py:82
+msgid "Select the invoices to confirm:"
+msgstr "Seleziona le fatture da confermare:"
+
+#: src/discord_bot/views/confirm.py:88
+#, python-brace-format
+msgid "confirm {selected_invoices_count} invoice"
+msgid_plural "confirm {selected_invoices_count} invoices"
+msgstr[0] "conferma di una fattura"
+msgstr[1] "conferma di {selected_invoices_count} fatture"
+
+#: src/discord_bot/views/confirm.py:94
+#, python-brace-format
+msgid "schedule for reprint {unselected_invoices_count} invoice"
+msgid_plural "schedule for reprint {unselected_invoices_count} invoices"
+msgstr[0] "programmazione della ristampa di una fattura"
+msgstr[1] "programmazione della ristampa di {unselected_invoices_count} fatture"
+
+#: src/discord_bot/views/confirm.py:100
+#, python-brace-format
+msgid "⏳ Job queued: {confirm_part}, and {reprint_part}."
+msgstr "⏳ Attività inserita in coda: {confirm_part}, e {reprint_part}."
+
+#: src/discord_bot/views/confirm.py:103
+#, python-brace-format
+msgid "⏳ Job queued: {confirm_part}."
+msgstr "⏳ Attività inserita in coda: {confirm_part}."
+
+#: src/discord_bot/views/confirm.py:105
+#, python-brace-format
+msgid "⏳ Job queued: {reprint_part}."
+msgstr "⏳ Attività inserita in coda: {reprint_part}."
+
+#: src/discord_bot/views/confirm.py:112 src/discord_bot/views/settings.py:353
+msgid "Confirm"
+msgstr "Conferma"
+
+#: src/discord_bot/views/confirm.py:161 src/discord_bot/views/settings.py:396
+msgid "Cancel"
+msgstr "Annulla"
+
+#: src/discord_bot/views/dashboard.py:45
+msgid "New invoices check complete."
+msgstr "Controllo nuove fatture completato"
+
+#: src/discord_bot/views/dashboard.py:47
+msgid "☑️ No new invoices found."
+msgstr "☑️ Nessuna nuova fattura trovata."
+
+#: src/discord_bot/views/dashboard.py:51
+#, python-brace-format
+msgid "💸 {invoice_count} new invoice found:"
+msgid_plural "💸 {invoice_count} new invoices found:"
+msgstr[0] "💸 Una nuova fattura trovata:"
+msgstr[1] "💸 {invoice_count} nuove fatture trovate:"
+
+#: src/discord_bot/views/dashboard.py:61
+msgid "Check for new invoices"
+msgstr "Controllo nuove fatture"
+
+#: src/discord_bot/views/dashboard.py:83
+msgid "⏳ Job queued: checking for new invoices."
+msgstr "⏳ Attività inserita in coda: controllo nuove fatture."
+
+#: src/discord_bot/views/dashboard.py:93
+msgid "Download missing invoices"
+msgstr "Scarica fatture mancanti"
+
+#: src/discord_bot/views/dashboard.py:111
+msgid "⏳ Job queued: download missing invoices."
+msgstr "⏳ Attività inserita in coda: scaricamento fatture mancanti."
+
+#: src/discord_bot/views/dashboard.py:117
+msgid "Print invoices"
+msgstr "Stampa fatture"
+
+#: src/discord_bot/views/dashboard.py:134
+msgid "⏳ Job queued: print invoices."
+msgstr "⏳ Attività inserita in coda: controllo nuove fatture."
+
+#: src/discord_bot/views/dashboard.py:140
+msgid "Confirm invoices"
+msgstr "Conferma fatture"
+
+#: src/discord_bot/views/dashboard.py:159
+msgid "☑️ There are no invoices to confirm."
+msgstr "☑️ Non ci sono fatture da confermare."
+
+#: src/discord_bot/views/dashboard.py:171
+msgid "Search invoices"
+msgstr "Ricerca fatture"
+
+#: src/discord_bot/views/dashboard.py:199
+msgid "Settings"
+msgstr "Impostazioni"
+
+#: src/discord_bot/views/dashboard.py:223
+msgid "⏳ Getting available printers..."
+msgstr "⏳ Caricamento stampanti disponibili..."
+
+#: src/discord_bot/views/settings.py:13
+msgid "Mon"
+msgstr "Lun"
+
+#: src/discord_bot/views/settings.py:14
+msgid "Tue"
+msgstr "Mar"
+
+#: src/discord_bot/views/settings.py:15
+msgid "Wed"
+msgstr "Mer"
+
+#: src/discord_bot/views/settings.py:16
+msgid "Thu"
+msgstr "Gio"
+
+#: src/discord_bot/views/settings.py:17
+msgid "Fri"
+msgstr "Ven"
+
+#: src/discord_bot/views/settings.py:18
+msgid "Sat"
+msgstr "Sab"
+
+#: src/discord_bot/views/settings.py:19
+msgid "Sun"
+msgstr "Dom"
+
+#: src/discord_bot/views/settings.py:63
+#, python-brace-format
+msgid "Use the server's default printer ({default_printer_name})"
+msgstr "Usa la stampante predefinita del server ({default_printer_name})"
+
+#: src/discord_bot/views/settings.py:73
+#, python-brace-format
+msgid "Printer {printer_name}"
+msgstr "Stampante {printer_name}"
+
+#: src/discord_bot/views/settings.py:82
+msgid "Choose default printer to use"
+msgstr "Scegli la stampante predefinita"
+
+#: src/discord_bot/views/settings.py:93
+#, python-brace-format
+msgid "Log level {level}"
+msgstr "Livello di log {level}"
+
+#: src/discord_bot/views/settings.py:100
+msgid "Choose minimum log level to display"
+msgstr "Scegli il minimo livello di log da mostrare"
+
+#: src/discord_bot/views/settings.py:114
+msgid "## ⚙️ Bot settings"
+msgstr "## ⚙️ Impostazioni Bot"
+
+#: src/discord_bot/views/settings.py:117
+msgid "Automatic invoice check schedule"
+msgstr "Programmazione controllo automatico nuove fatture"
+
+#: src/discord_bot/views/settings.py:143
+msgid "Automatic printing schedule"
+msgstr "Programmazione stampa automatica fatture"
+
+#: src/discord_bot/views/settings.py:169
+msgid "Save"
+msgstr "Salva"
+
+#: src/discord_bot/views/settings.py:209
+msgid "Settings saved."
+msgstr "Impostazioni salvate."
+
+#: src/discord_bot/views/settings.py:224
+msgid "Select weekdays"
+msgstr "Seleziona i giorni della settimna"
+
+#: src/discord_bot/views/settings.py:262
+msgid "Select a time interval to edit or delete"
+msgstr "Seleziona un intervallo temporale da modificare o cancellare"
+
+#: src/discord_bot/views/settings.py:275
+msgid "No configured time intervals."
+msgstr "Nessun intervallo temporale configurato."
+
+#: src/discord_bot/views/settings.py:332
+msgid "### Configure a new element"
+msgstr "### Configura un nuovo elemento"
+
+#: src/discord_bot/views/settings.py:337
+#, python-brace-format
+msgid "Selected weekdays: {days_list}"
+msgstr "Giorni della settimana selezionati: {days_list}"
+
+#: src/discord_bot/views/settings.py:341
+#, python-brace-format
+msgid "Selected starting time: {start_time}"
+msgstr "Orario di inizio selezionato: {start_time}"
+
+#: src/discord_bot/views/settings.py:347
+#, python-brace-format
+msgid "Selected end time: {end_time}"
+msgstr "Orario di fine selezionato: {end_time}"
+
+#: src/discord_bot/views/settings.py:366 src/discord_bot/views/settings.py:389
+msgid "Select the weekdays first"
+msgstr "Seleziona prima i giorni della settimana"
+
+#: src/discord_bot/views/settings.py:373
+msgid "Adjust time"
+msgstr "Modifica orario"
+
+#: src/discord_bot/views/settings.py:419
+msgid "Start Time"
+msgstr "Orario di inizio"
+
+#: src/discord_bot/views/settings.py:425
+msgid "End Time"
+msgstr "Orario di fine"
+
+#: src/discord_bot/views/settings.py:434
+msgid "Time Interval"
+msgstr "Intervallo temporale"
+
+#: src/discord_bot/views/settings.py:466
+msgid "Invalid time format. Use HH:MM"
+msgstr "Formato ora non corretto. Usa HH:MM."
+
+#: src/discord_bot/views/settings.py:500
+msgid "## Automatic check schedule\n"
+msgstr "## Programmazione del controllo automatico\n"
+
+#: src/discord_bot/views/settings.py:503
+msgid "No configured schedule."
+msgstr "Nessunna programmazione configurata."
+
+#: src/discord_bot/views/settings.py:513
+msgid "Add new"
+msgstr "Aggiungi nuova"
+
+#: src/discord_bot/views/settings.py:532
+msgid "Delete selected"
+msgstr "Cancella selezionato"
+
+#: src/discord_bot/views/settings.py:552
+msgid "Select a schedule to delete first."
+msgstr "Prima seleziona una programmazione da cancellare."
+
+#: src/discord_bot/views/settings.py:565
+msgid "Edit selected"
+msgstr "Modifica selezionato"
+
+#: src/discord_bot/views/settings.py:585
+msgid "Select a schedule to edit first."
+msgstr "Prima seleziona una programmazione da modificare."
+
+#: src/discord_bot/views/settings.py:597
+msgid "Confirm schedule"
+msgstr "Conferma programmazione"
+

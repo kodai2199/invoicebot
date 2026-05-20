@@ -1,0 +1,22 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+.ruff_cache
+.pytest_cache/
+
+# Virtual environments and env files
+.venv
+.env
+
+# IDE files
+.vscode/
+.idea/
+
+# Run files
+im.sqlite
+invoice_bot_save.txt
+invoices

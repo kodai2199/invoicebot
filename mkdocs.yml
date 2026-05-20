@@ -1,0 +1,79 @@
+site_name: InvoiceBot
+site_url: https://kodai2199.github.io/invoicebot
+
+theme:
+  name: material
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.indexes
+    - content.code.copy
+  
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          paths: [src]
+          options:
+            show_root_heading: true
+            show_source: true
+            docstring_style: google
+            separate_signature: true
+            enable_inventory: true
+            fallback: true
+
+nav:
+  - Home: index.md
+
+  - Getting started:
+      - getting-started/installation.md
+      - getting-started/configuration.md
+      - getting-started/run.md
+
+  - Architecture:
+      - architecture/overview.md
+      - architecture/job-lifecycle.md
+      - architecture/state-and-persistence.md
+      - architecture/views-and-interactions.md
+
+  - User guide:
+      - user-guide/dashboard.md
+      - user-guide/settings.md
+      - user-guide/troubleshooting.md
+
+  - API reference:
+      - api/index.md
+      - discord_bot:
+          - api/discord_bot/index.md
+          - api/discord_bot/app.md
+          - api/discord_bot/dashboard_manager.md
+          - api/discord_bot/jobs.md
+          - api/discord_bot/logs.md
+          - api/discord_bot/state.md
+          - api/discord_bot/enums.md
+          - views:
+              - api/discord_bot/views/index.md
+              - api/discord_bot/views/base.md
+              - api/discord_bot/views/dashboard.md
+              - api/discord_bot/views/confirm.md
+              - api/discord_bot/views/settings.md
+              - api/discord_bot/views/search.md
+      - invoice_manager:
+          - api/invoice_manager/index.md
+          - api/invoice_manager/manager.md
+          - api/invoice_manager/model.md
+          - api/invoice_manager/config.md
+          - api/invoice_manager/printing.md
+      - aow_client:
+          - api/aow_client/index.md
+          - api/aow_client/client.md
+          - api/aow_client/config.md
+          - api/aow_client/driver_factory.md
+          - api/aow_client/types.md
+          - pages:
+              - api/aow_client/pages/index.md
+              - api/aow_client/pages/base.md
+              - api/aow_client/pages/login.md
+              - api/aow_client/pages/dashboard.md
+              - api/aow_client/pages/download.md

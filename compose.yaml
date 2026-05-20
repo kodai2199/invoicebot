@@ -1,0 +1,38 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        PYTHON_VERSION: ${PYTHON_VERSION:-3.13}
+        APP_MODULE: ${APP_MODULE:-src.discord_bot.app}
+    env_file:
+      - .env
+    environment:
+      AOW_REMOTE_ENABLED: ${AOW_REMOTE_ENABLED:-true}
+      AOW_REMOTE_HOST: ${AOW_REMOTE_HOST:-http://selenium:4444/wd/hub}
+    depends_on:
+      - selenium
+    volumes:
+      - ./invoices:/app/invoices:rw
+    restart: unless-stopped
+
+  selenium:
+    image: selenium/standalone-chrome:latest
+    ports:
+      - "4444:4444"
+      - "7900:7900"
+    shm_size: 2gb
+    volumes:
+      - ./invoices/downloaded:/home/seluser/downloads:rw
+    restart: unless-stopped
+
+  cups:
+    container_name: cupsd
+    image: olbat/cupsd:latest
+    volumes:
+      - /var/run/dbus:/var/run/dbus
+      - ./cups:/etc/cups/:rw
+      - ./cups/spool:/var/spool/cups/:rw
+    ports:
+      - "631:631/tcp"

@@ -1,0 +1,30 @@
+name: Publish Documentation
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v6
+
+      - name: Configure Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+
+      - name: Install Project + Dev Dependencies
+        run: uv sync --extra dev
+
+      - name: Build and Deploy to GitHub Pages
+        run: uv run mkdocs gh-deploy --force
