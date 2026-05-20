@@ -521,7 +521,6 @@ dependencies = [
     { name = "babel" },
     { name = "hikari" },
     { name = "hikari-miru" },
-    { name = "pycups" },
     { name = "pydantic" },
     { name = "pytest" },
     { name = "python-dotenv" },
@@ -540,6 +539,9 @@ dev = [
     { name = "pytest-cov" },
     { name = "ruff" },
 ]
+pycups = [
+    { name = "pycups" },
+]
 
 [package.metadata]
 requires-dist = [
@@ -549,7 +551,7 @@ requires-dist = [
     { name = "mkdocs", marker = "extra == 'dev'", specifier = ">=1.6.1" },
     { name = "mkdocs-material", marker = "extra == 'dev'", specifier = ">=9.7.6" },
     { name = "mkdocstrings-python", marker = "extra == 'dev'", specifier = ">=2.0.3" },
-    { name = "pycups", specifier = ">=2.0.4" },
+    { name = "pycups", marker = "extra == 'pycups'", specifier = ">=2.0.4" },
     { name = "pydantic", specifier = ">=2.13.4" },
     { name = "pytest", specifier = ">=9.0.3" },
     { name = "pytest", marker = "extra == 'dev'", specifier = ">=8.3.5" },
@@ -561,7 +563,7 @@ requires-dist = [
     { name = "sqlalchemy", specifier = ">=2.0.49" },
     { name = "uvloop", specifier = ">=0.22.1" },
 ]
-provides-extras = ["dev"]
+provides-extras = ["pycups", "dev"]
 
 [[package]]
 name = "jinja2"

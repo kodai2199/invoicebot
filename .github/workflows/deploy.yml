@@ -33,7 +33,7 @@ jobs:
           sudo apt-get install -y --no-install-recommends libcups2-dev
 
       - name: Install project dependencies
-        run: uv sync --dev
+        run: uv sync --extra dev --extra pycups
 
       - name: Install test tooling
         run: uv pip install pytest-cov
