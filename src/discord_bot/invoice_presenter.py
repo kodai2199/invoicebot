@@ -63,6 +63,6 @@ def pretty_print(
     if len(invoices) == 1:
         return _pretty_print(invoices[0], detail)
 
-    for i, invoice in enumerate(invoices):
+    for i, invoice in enumerate(invoices, start=1):
         lines.append(f"{i}. {_pretty_print(invoice, detail)}")
     return "\n".join(lines)

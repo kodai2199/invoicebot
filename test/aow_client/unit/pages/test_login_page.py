@@ -42,6 +42,7 @@ def test_login_success(login_page, mock_driver):
     mock_action_chain.click.return_value = mock_action_chain
 
     login_page.load = Mock()
+    login_page._wait_stale = Mock()
     with (
         patch.object(
             LoginPage, "logged_in", new_callable=PropertyMock
@@ -75,7 +76,7 @@ def test_login_success(login_page, mock_driver):
         )
         mock_action_chain.click.assert_called_once_with(mock_submit_button)
         mock_action_chain.perform.assert_called_once()
-        login_page.wait_stale.assert_called_once_with(mock_submit_button, 5)
+        login_page._wait_stale.assert_called_once_with(mock_submit_button, 5)
         login_page.wait_page_ready.assert_called_once()
 
 

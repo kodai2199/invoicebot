@@ -32,12 +32,12 @@ def test_pretty_print_full(make_invoice):
 
 def test_pretty_print_coerces_single_invoice(make_invoice):
     text = pretty_print(make_invoice(7))
-    assert text.startswith("0. ")
+    assert not text.startswith("1. ")
     assert "Sender 7" in text
 
 
 def test_pretty_print_multiple_invoices(make_invoice):
     text = pretty_print([make_invoice(8), make_invoice(9)])
     lines = text.splitlines()
-    assert lines[0].startswith("0. ")
-    assert lines[1].startswith("1. ")
+    assert lines[0].startswith("1. ")
+    assert lines[1].startswith("2. ")

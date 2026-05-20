@@ -1,3 +1,5 @@
+import sys
+from types import SimpleNamespace
 from unittest.mock import Mock
 
 import pytest
@@ -9,6 +11,19 @@ from invoice_manager.printing import (
     PrintingBackend,
     PrintJobStatus,
 )
+
+
+@pytest.fixture(autouse=True)
+def mock_cups_module(monkeypatch):
+    class FakeIPPError(Exception):
+        pass
+
+    fake_cups = SimpleNamespace(
+        IPPError=FakeIPPError,
+        Connection=Mock(return_value=Mock()),
+    )
+    monkeypatch.setitem(sys.modules, "cups", fake_cups)
+    return fake_cups
 
 
 # PrintJobStatus check
@@ -113,22 +128,24 @@ def test_cups_fails_with_wrong_env_variables(monkeypatch):
         CupsPrintingBackend()
 
 
-def test_cups_init_base_env_variables(monkeypatch):
+def test_cups_init_base_env_variables(monkeypatch, mock_cups_module):
     monkeypatch.setenv("CUPS_HOST", "127.0.0.1")
     monkeypatch.setenv("CUPS_PORT", "631")
     cups_pb = CupsPrintingBackend()
     assert isinstance(cups_pb, CupsPrintingBackend)
     assert cups_pb.cups_host == "127.0.0.1"
     assert cups_pb.cups_port == 631
+    mock_cups_module.Connection.assert_called_once_with("127.0.0.1", 631)
 
 
-def test_cups_init_prefix_env_variables(monkeypatch):
+def test_cups_init_prefix_env_variables(monkeypatch, mock_cups_module):
     monkeypatch.setenv("INVOICEMANAGER_CUPS_HOST", "127.0.0.1")
     monkeypatch.setenv("INVOICEMANAGER_CUPS_PORT", "631")
     cups_pb = CupsPrintingBackend("INVOICEMANAGER_")
     assert isinstance(cups_pb, CupsPrintingBackend)
     assert cups_pb.cups_host == "127.0.0.1"
     assert cups_pb.cups_port == 631
+    mock_cups_module.Connection.assert_called_once_with("127.0.0.1", 631)
 
 
 # CUPS: Compliance
@@ -149,11 +166,17 @@ def test_cups_satisfies_backend_protocol(monkeypatch):
 # CUPS: Work
 
 
+def test_cups_uses_mocked_module(cups_pb):
+    assert hasattr(cups_pb.cups, "Connection")
+
+
 @pytest.fixture
-def cups_pb(monkeypatch):
+def cups_pb(monkeypatch, mock_cups_module):
     monkeypatch.setenv("CUPS_HOST", "127.0.0.1")
     monkeypatch.setenv("CUPS_PORT", "631")
-    return CupsPrintingBackend()
+    pb = CupsPrintingBackend()
+    mock_cups_module.Connection.assert_called_once_with("127.0.0.1", 631)
+    return pb
 
 
 def test_cups_default_printer(cups_pb):
@@ -224,10 +247,10 @@ def test_cups_get_job_status_pending(cups_pb):
 
 
 def test_cups_get_job_status_failed(cups_pb):
-    import cups
-
     cups_pb.connection = Mock()
-    cups_pb.connection.getJobAttributes = Mock(side_effect=cups.IPPError())
+    cups_pb.connection.getJobAttributes = Mock(
+        side_effect=cups_pb.cups.IPPError()
+    )
     status = cups_pb.get_job_status(0)
     assert status == PrintJobStatus.FAILED
     cups_pb.connection.getJobAttributes.assert_called_once()
@@ -242,10 +265,8 @@ def test_cups_cancel_job_success(cups_pb):
 
 
 def test_cups_cancel_job_fail(cups_pb):
-    import cups
-
     cups_pb.connection = Mock()
-    cups_pb.connection.cancelJob = Mock(side_effect=cups.IPPError())
+    cups_pb.connection.cancelJob = Mock(side_effect=cups_pb.cups.IPPError())
     status = cups_pb.cancel_job(0)
     assert status is False
     cups_pb.connection.cancelJob.assert_called_once()
