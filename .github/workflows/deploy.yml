@@ -73,7 +73,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v6
         with:
-          images: ${{ secrets.DOCKERHUB_IMAGE }}
+          images: ${{ secrets.DOCKERHUB_USERNAME }}/invoicebot
           tags: |
             type=ref,event=branch
             type=ref,event=tag
