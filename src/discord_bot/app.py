@@ -54,7 +54,7 @@ class InvoiceBot:
         token: str | None = None,
         main_channel_id: int | None = None,
         log_channel_id: int | None = None,
-        savefile_path: Path = Path("invoice_bot_save.txt"),
+        savefile_path: Path | None = Path("data/bot_config.json"),
     ):
         ensure_bootstrapped()
         DashboardManager, JobRunner, JobTracker, StateStore, BotLogger = (
@@ -67,6 +67,10 @@ class InvoiceBot:
             main_channel_id = os.getenv("DISCORD_BOT_MAIN_CHANNEL_ID")
         if not log_channel_id:
             log_channel_id = os.getenv("DISCORD_BOT_LOG_CHANNEL_ID")
+
+        save_file_env = os.getenv("DISCORD_BOT_CONFIG_PATH")
+        if save_file_env is not None:
+            savefile_path = Path(save_file_env)
 
         if not token or not main_channel_id:
             raise ValueError(

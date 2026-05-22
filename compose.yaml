@@ -1,5 +1,6 @@
 services:
-  app:
+  invoicebot:
+    container_name: invoicebot
     build:
       context: .
       dockerfile: Dockerfile
@@ -10,14 +11,17 @@ services:
       - .env
     environment:
       AOW_REMOTE_ENABLED: ${AOW_REMOTE_ENABLED:-true}
-      AOW_REMOTE_HOST: ${AOW_REMOTE_HOST:-http://selenium:4444/wd/hub}
+      AOW_REMOTE_HOST: ${AOW_REMOTE_HOST:-http://selenium:4444/}
     depends_on:
       - selenium
+      - cups
     volumes:
       - ./invoices:/app/invoices:rw
+      - ./data:/app/data/:rw
     restart: unless-stopped
 
   selenium:
+    container_name: selenium
     image: selenium/standalone-chrome:latest
     ports:
       - "4444:4444"
@@ -31,8 +35,8 @@ services:
     container_name: cupsd
     image: olbat/cupsd:latest
     volumes:
-      - /var/run/dbus:/var/run/dbus
-      - ./cups:/etc/cups/:rw
-      - ./cups/spool:/var/spool/cups/:rw
+      #- /var/run/dbus:/var/run/dbus:rw
+      - ./cups:/etc/cups:rw
+      #- ./cups/spool:/var/spool/cups/:rw
     ports:
-      - "631:631/tcp"
+      - "632:632/tcp"

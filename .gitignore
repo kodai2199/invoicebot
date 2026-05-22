@@ -20,3 +20,5 @@ wheels/
 im.sqlite
 invoice_bot_save.txt
 invoices
+cups
+data

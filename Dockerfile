@@ -20,7 +20,7 @@ COPY pyproject.toml README.md ./
 COPY src ./src
 
 RUN mkdir -p /app/invoices/downloaded /app/invoices/confirmed
-RUN uv sync --no-dev
+RUN uv sync --extra pycups
 
 ARG APP_MODULE=src.discord_bot.app
 ENV APP_MODULE=${APP_MODULE}
