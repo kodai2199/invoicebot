@@ -22,16 +22,14 @@ msgstr ""
 msgid ""
 "Missing required arguments or environment variables for the Discord Bot: "
 "DISCORD_BOT_TOKEN and DISCORD_BOT_MAIN_CHANNEL_ID"
-msgstr "Gli argomenti obbligatori o le seguenti variabili d'ambiente per il Bot
-di Discord sono mancanti: DISCORD_BOT_TOKEN and DISCORD_BOT_MAIN_CHANNEL_ID"
+msgstr "Gli argomenti obbligatori o le seguenti variabili d'ambiente per il Bot di Discord sono mancanti: DISCORD_BOT_TOKEN and DISCORD_BOT_MAIN_CHANNEL_ID"
 
 #: src/discord_bot/app.py:207
 #, python-brace-format
 msgid ""
 "[DASHBOARD] Failed to refresh dashboard after job state change: "
 "{exception!r}"
-msgstr "[PANNELLO PRINCIPALE] Impossible aggiornare il pannello principale dopo
-il cambiamento di stato di un'attività: {exception!r}"
+msgstr "[PANNELLO PRINCIPALE] Impossible aggiornare il pannello principale dopo il cambiamento di stato di un'attività: {exception!r}"
 
 #: src/discord_bot/app.py:224
 msgid "InvoiceBot initialized and started"
@@ -197,8 +195,7 @@ msgstr "[ATTIVITÀ] Controllo completato. Nessuna nuova fattura trovata."
 msgid "[JOB] Check complete. Found {found_count} new invoice:"
 msgid_plural "[JOB] Check complete. Found {found_count} new invoices:"
 msgstr[0] "[ATTIVITÀ] Controllo completato. Trovata una nuova fattura:"
-msgstr[1] "[ATTIVITÀ] Controllo completato. Trovate {found_count} nuove
-fatture:"
+msgstr[1] "[ATTIVITÀ] Controllo completato. Trovate {found_count} nuove fatture:"
 
 #: src/discord_bot/jobs.py:256
 msgid "[JOB] No invoices to download."

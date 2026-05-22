@@ -14,7 +14,7 @@ services:
       AOW_REMOTE_HOST: ${AOW_REMOTE_HOST:-http://selenium:4444/}
     depends_on:
       - selenium
-      - cups
+      - cupsd
     volumes:
       - ./invoices:/app/invoices:rw
       - ./data:/app/data/:rw
@@ -31,7 +31,7 @@ services:
       - ./invoices/downloaded:/home/seluser/downloads:rw
     restart: unless-stopped
 
-  cups:
+  cupsd:
     container_name: cupsd
     image: olbat/cupsd:latest
     volumes:

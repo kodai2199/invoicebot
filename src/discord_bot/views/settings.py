@@ -350,7 +350,12 @@ class EditTimeIntervalView(InvoiceBotView):
             )
         return "\n".join(lines)
 
-    @miru.button(label=_("Confirm"), style=hikari.ButtonStyle.SUCCESS, row=4)
+    @miru.button(
+        label=_("Confirm"),
+        custom_id="confirm_button",
+        style=hikari.ButtonStyle.SUCCESS,
+        row=4,
+    )
     async def confirm_button(self, ctx: miru.ViewContext, button: miru.Button):
         """Validate input and accept the edited interval.
 
@@ -370,9 +375,12 @@ class EditTimeIntervalView(InvoiceBotView):
         self.stop()
 
     @miru.button(
-        label=_("Adjust time"), style=hikari.ButtonStyle.PRIMARY, row=4
+        label=_("Adjust time"),
+        custom_id="adjust_time_button",
+        style=hikari.ButtonStyle.PRIMARY,
+        row=4,
     )
-    async def adjust_time_button_button(
+    async def adjust_time_button(
         self, ctx: miru.ViewContext, button: miru.Button
     ):
         """Open modal controls for start and end time editing.
@@ -393,7 +401,12 @@ class EditTimeIntervalView(InvoiceBotView):
         await ctx.respond_with_modal(modal)
         await self.refresh(ctx)
 
-    @miru.button(label=_("Cancel"), style=hikari.ButtonStyle.DANGER, row=4)
+    @miru.button(
+        label=_("Cancel"),
+        custom_id="cancel_button",
+        style=hikari.ButtonStyle.DANGER,
+        row=4,
+    )
     async def cancel_button(self, ctx: miru.ViewContext, button: miru.Button):
         """Cancel editing and close the interval editor view.
 
@@ -510,7 +523,12 @@ class TimeIntervalsView(InvoiceBotView):
 
         return "\n".join(lines)
 
-    @miru.button(label=_("Add new"), style=hikari.ButtonStyle.PRIMARY, row=3)
+    @miru.button(
+        label=_("Add new"),
+        custom_id="add_new_button",
+        style=hikari.ButtonStyle.PRIMARY,
+        row=3,
+    )
     async def add_new_button(self, ctx: miru.ViewContext, button: miru.Button):
         """Launch editor flow to append a new interval.
 

@@ -63,7 +63,11 @@ class FakePrintingBackend:
 
 @pytest.fixture
 def db_engine(tmp_path):
-    return get_engine(f"sqlite:///{tmp_path / 'test.sqlite'}")
+    engine = get_engine(f"sqlite:///{tmp_path / 'test.sqlite'}")
+    try:
+        yield engine
+    finally:
+        engine.dispose()
 
 
 @pytest.fixture
