@@ -4,6 +4,7 @@ from pathlib import Path
 from typing import Any
 
 import pytest
+from sqlalchemy.orm import close_all_sessions
 
 from invoice_manager.config import InvoiceManagerConfig
 from invoice_manager.manager import InvoiceManager
@@ -67,6 +68,7 @@ def db_engine(tmp_path):
     try:
         yield engine
     finally:
+        close_all_sessions()
         engine.dispose()
 
 

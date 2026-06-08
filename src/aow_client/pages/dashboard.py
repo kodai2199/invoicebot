@@ -52,7 +52,7 @@ class DashboardPage(BasePage):
         # Ensure that the invoice cards are loaded, by waiting for one to
         # appear
         try:
-            new_invoices_card = self.wait_element(self.NEW_INVOICES_SECTION)
+            new_invoices_card = self._wait_element(self.NEW_INVOICES_SECTION)
         except TimeoutException:
             logger.warning(
                 "Could not obtain the invoice cards, so there must be no "
@@ -102,7 +102,7 @@ class DashboardPage(BasePage):
             return True
 
         try:
-            cookies_accept_button = self.wait_element(
+            cookies_accept_button = self._wait_element(
                 self.COOKIE_ACCEPT_BUTTON,
                 timeout=2,
             )

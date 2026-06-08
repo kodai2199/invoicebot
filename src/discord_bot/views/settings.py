@@ -202,7 +202,7 @@ class SettingsView(InvoiceBotView):
                 self.store.state.discord_log_level or LoggingCategory.INFO
             ]
         self.store.state.discord_log_level = LoggingCategory(
-            selected_log_level[0]
+            int(selected_log_level[0])
         )
         self.store.save()
         await self.actions.respond_ephemeral(

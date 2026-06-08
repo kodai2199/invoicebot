@@ -68,7 +68,7 @@ class BasePage:
             return locator.as_tuple()
         return locator
 
-    def wait_element(
+    def _wait_element(
         self, locator: Locator | WebElement, timeout: int | float | None = None
     ) -> WebElement:
         """Block until an object is present on the page or the timeout expires.
@@ -199,7 +199,7 @@ class BasePage:
                 page or not.
         """
         try:
-            self.wait_element(locator, timeout)
+            self._wait_element(locator, timeout)
             return True
         except TimeoutException:
             return False
@@ -223,4 +223,4 @@ class BasePage:
                 `timeout` has elapsed.
         """
         wait_timeout = timeout or self.default_timeout
-        self.wait_element(Locator(By.TAG_NAME, "body"), wait_timeout)
+        self._wait_element(Locator(By.TAG_NAME, "body"), wait_timeout)
