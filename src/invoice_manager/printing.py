@@ -133,7 +133,8 @@ class CupsPrintingBackend(PrintingBackend):
             )
 
         self.cups_port = int(self.cups_port)
-
+        self.cups.setServer(self.cups_host)
+        self.cups.setPort(self.cups_port)
         self.connection = self.cups.Connection(self.cups_host, self.cups_port)
 
     @override

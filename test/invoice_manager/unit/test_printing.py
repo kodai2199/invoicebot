@@ -21,6 +21,8 @@ def mock_cups_module(monkeypatch):
     fake_cups = SimpleNamespace(
         IPPError=FakeIPPError,
         Connection=Mock(return_value=Mock()),
+        setServer=Mock(),
+        setPort=Mock(),
     )
     monkeypatch.setitem(sys.modules, "cups", fake_cups)
     return fake_cups
