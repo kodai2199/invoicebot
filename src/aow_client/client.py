@@ -210,21 +210,20 @@ class AziendaOnWebClient:
             # Verify downloaded files exist
             results = {}
             for i, invoice in enumerate(invoices):
-                if i < len(download_results) and download_results[i]:
-                    invoice_path = (
-                        self.download_dir
-                        / f"{self.DOC_PREFIX}{invoice.id}{self.DOC_SUFFIX}"
-                    )
-                    results[invoice] = invoice_path.exists()
-                    if not results[invoice]:
-                        logger.warning(
-                            "Downloaded file not found "
-                            f"for invoice {invoice.id}"
-                        )
-                else:
+                if not download_results[i]:
                     results[invoice] = False
                     logger.error(f"Failed to download invoice {invoice.id}")
+                    continue
 
+                invoice_path = (
+                    self.download_dir
+                    / f"{self.DOC_PREFIX}{invoice.id}{self.DOC_SUFFIX}"
+                )
+                results[invoice] = invoice_path.exists()
+                if not results[invoice]:
+                    logger.warning(
+                        f"Downloaded file not found for invoice {invoice.id}"
+                    )
             self._update_last_action()
             return results
         except Exception as e:

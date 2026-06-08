@@ -146,7 +146,7 @@ async def test_fetch_new_invoices_job_enqueues_download(
 async def test_download_invoices_job_reads_data(
     fake_invoice_manager, fake_logger, make_invoice
 ):
-    downloaded = [make_invoice(2)]
+    downloaded = {make_invoice(2): True}
     fake_invoice_manager.download.return_value = downloaded
     runner = JobRunner(fake_invoice_manager, fake_logger, JobTracker())
 

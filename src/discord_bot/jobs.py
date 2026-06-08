@@ -281,9 +281,12 @@ class JobRunner:
         to_get = None
         if job.data is not None:
             to_get = job.data.get("invoices")
-        downloaded = self.invoice_manager.download(to_get)
+        print(to_get)
+        download_output = self.invoice_manager.download(to_get)
+        downloaded = [k for k, v in download_output.items() if v]
+        print(downloaded)
         await self.logger.info(self._get_download_job_log_message(downloaded))
-        return downloaded
+        return download_output
 
     def _get_to_print_job_log_message(
         self, to_print: list[Invoice] | None

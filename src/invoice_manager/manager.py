@@ -96,6 +96,7 @@ class InvoiceManager:
                 invoice = session.merge(invoice)
                 output_dict[invoice] = invoice.downloaded
             session.commit()
+
         return output_dict
 
     def query_invoices(self, filter_dict: dict) -> list[Invoice]:

@@ -133,6 +133,7 @@ class DownloadPage(BasePage):
             "reception_date": self.parse_date(invoice_data[7]),
             "amount": self.parse_amount(invoice_data[6]),
         }
+        print("HERE?")
         if invoice_id != data["id"]:
             logger.error(
                 f"Mismatch in document ID ({invoice_id}->{data['id']}) "
@@ -361,6 +362,7 @@ class DownloadPage(BasePage):
             invoices = [invoices]
 
         downloaded = []
+
         for b in invoices:
             downloaded.append(False)
             try:
